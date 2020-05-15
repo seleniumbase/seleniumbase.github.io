@@ -40,10 +40,6 @@
      <lastmod>2020-05-15</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://seleniumbase.io/examples/example_logs/ReadMe/</loc>
-     <lastmod>2020-05-15</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
      <loc>https://seleniumbase.io/help_docs/translations/</loc>
      <lastmod>2020-05-15</lastmod>
      <changefreq>daily</changefreq>
@@ -72,7 +68,11 @@
      <lastmod>2020-05-15</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://seleniumbase.io/help_docs/happy_customers/</loc>
+     <loc>https://seleniumbase.io/seleniumbase/common/ReadMe/</loc>
+     <lastmod>2020-05-15</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://seleniumbase.io/examples/example_logs/ReadMe/</loc>
      <lastmod>2020-05-15</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -108,6 +108,10 @@
      <lastmod>2020-05-15</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://seleniumbase.io/seleniumbase/masterqa/ReadMe/</loc>
+     <lastmod>2020-05-15</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://seleniumbase.io/help_docs/using_safari_driver/</loc>
      <lastmod>2020-05-15</lastmod>
      <changefreq>daily</changefreq>
@@ -116,15 +120,11 @@
      <lastmod>2020-05-15</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://seleniumbase.io/seleniumbase/common/ReadMe/</loc>
-     <lastmod>2020-05-15</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://seleniumbase.io/seleniumbase/masterqa/ReadMe/</loc>
-     <lastmod>2020-05-15</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
      <loc>https://seleniumbase.io/help_docs/ReadMe/</loc>
+     <lastmod>2020-05-15</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://seleniumbase.io/help_docs/happy_customers/</loc>
      <lastmod>2020-05-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
