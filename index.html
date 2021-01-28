@@ -17,7 +17,8 @@ pip install -e .  <span class=c1># Editable install</span>
 COMMANDS:
       install         <span class=o>[</span>DRIVER<span class=o>]</span> <span class=o>[</span>OPTIONS<span class=o>]</span>
       mkdir           <span class=o>[</span>DIRECTORY<span class=o>]</span>
-      mkfile          <span class=o>[</span>FILE.py<span class=o>]</span>
+      mkfile          <span class=o>[</span>FILE.py<span class=o>]</span> <span class=o>[</span>OPTIONS<span class=o>]</span>
+      mkpres          <span class=o>[</span>FILE.py<span class=o>]</span> <span class=o>[</span>LANGUAGE OPTIONS<span class=o>]</span>
       options         <span class=o>(</span>List common pytest options<span class=o>)</span>
       print           <span class=o>[</span>FILE<span class=o>]</span> <span class=o>[</span>OPTIONS<span class=o>]</span>
       translate       <span class=o>[</span>SB_FILE.py<span class=o>]</span> <span class=o>[</span>LANG<span class=o>]</span> <span class=o>[</span>ACTION<span class=o>]</span>
@@ -40,23 +41,23 @@ COMMANDS:
 </code></pre></div> <ul> <li>You need a different webdriver for each browser to automate: <code>chromedriver</code> for Chrome, <code>edgedriver</code> for Edge, <code>geckodriver</code> for Firefox, and <code>operadriver</code> for Opera.</li> <li>If you have the latest version of Chrome installed, get the latest chromedriver (<i>otherwise it defaults to chromedriver 2.44 for compatibility reasons</i>):</li> </ul> <div class=codehilite><pre><span></span><code>sbase install chromedriver latest
 </code></pre></div> <ul> <li>If you run a test without the correct webdriver installed, the driver will be downloaded automatically.</li> </ul> <p>(See <a href=https://seleniumbase.io/seleniumbase/console_scripts/ReadMe/ >seleniumbase.io/seleniumbase/console_scripts/ReadMe/</a> for more information on SeleniumBase console scripts.)</p> <h3><img src=https://seleniumbase.io/img/logo6.png title=SeleniumBase width=32> Create and run tests:</h3> <p>🔵 <code>sbase mkdir DIR</code> creates a folder with sample tests:</p> <div class=codehilite><pre><span></span><code>sbase mkdir ui_tests
 <span class=nb>cd</span> ui_tests/
-</code></pre></div> <blockquote> <p>That folder will have the following files:</p> </blockquote> <div class=codehilite><pre><span></span><code><span class=err>ui_tests/</span>
-<span class=err>├── __init__.py</span>
-<span class=err>├── boilerplates/</span>
-<span class=err>│   ├── __init__.py</span>
-<span class=err>│   ├── base_test_case.py</span>
-<span class=err>│   ├── boilerplate_test.py</span>
-<span class=err>│   ├── page_objects.py</span>
-<span class=err>│   └── samples/</span>
-<span class=err>│       ├── __init__.py</span>
-<span class=err>│       ├── google_objects.py</span>
-<span class=err>│       └── google_test.py</span>
-<span class=err>├── my_first_test.py</span>
-<span class=err>├── parameterized_test.py</span>
-<span class=err>├── pytest.ini</span>
-<span class=err>├── requirements.txt</span>
-<span class=err>├── setup.cfg</span>
-<span class=err>└── test_demo_site.py</span>
+</code></pre></div> <blockquote> <p>That creates a folder with these files:</p> </blockquote> <div class=codehilite><pre><span></span><code>ui_tests/
+├── __init__.py
+├── boilerplates/
+│   ├── __init__.py
+│   ├── base_test_case.py
+│   ├── boilerplate_test.py
+│   ├── page_objects.py
+│   └── samples/
+│       ├── __init__.py
+│       ├── google_objects.py
+│       └── google_test.py
+├── my_first_test.py
+├── parameterized_test.py
+├── pytest.ini
+├── requirements.txt
+├── setup.cfg
+└── test_demo_site.py
 </code></pre></div> <p>🔵 <b>Run a sample test with <code>pytest</code>:</b></p> <div class=codehilite><pre><span></span><code>pytest test_demo_site.py
 </code></pre></div> <blockquote> <p>(Chrome is the default browser if not specified with <code>--browser=BROWSER</code>.) (On Linux, <code>--headless</code> is the default behavior. You can also run in headless mode on any OS. If your Linux machine has a GUI and you want to see the web browser as tests run, add <code>--headed</code> or <code>--gui</code>.)</p> </blockquote> <p><a href=https://github.com/seleniumbase/SeleniumBase/blob/master/examples/test_demo_site.py><img src=https://seleniumbase.io/cdn/gif/demo_page_1.gif title="SeleniumBase Demo Page"></a><br></p> <p>🔵 <b>If you've cloned SeleniumBase from GitHub, you can run sample tests from the <a href=https://github.com/seleniumbase/SeleniumBase/tree/master/examples>SeleniumBase/examples/</a> folder:</b></p> <div class=codehilite><pre><span></span><code><span class=nb>cd</span> examples/
 pytest my_first_test.py
@@ -184,10 +185,16 @@ nosetests <span class=o>[</span>FILE_NAME.py<span class=o>]</span>:<span class=o
 pytest test_suite.py --browser<span class=o>=</span>chrome
 
 pytest test_suite.py --browser<span class=o>=</span>firefox
-</code></pre></div> <p>An easy way to override seleniumbase/config/settings.py is by using a custom settings file. Here's the command-line option to add to tests: (See <a href=https://github.com/seleniumbase/SeleniumBase/blob/master/examples/custom_settings.py>examples/custom_settings.py</a>) <code>--settings_file=custom_settings.py</code> (Settings include default timeout values, a two-factor auth key, DB credentials, S3 credentials, and other important settings used by tests.)</p> <p>🔵 To pass additional data from the command-line to tests, add <code>--data="ANY STRING"</code>. Inside your tests, you can use <code>self.data</code> to access that.</p> <h3><img src=https://seleniumbase.io/img/logo6.png title=SeleniumBase width=32> Test Directory Customization:</h3> <p>🔵 For running tests outside of the SeleniumBase repo with <strong>pytest</strong>, you'll want a copy of <strong><a href=https://github.com/seleniumbase/SeleniumBase/blob/master/pytest.ini>pytest.ini</a></strong> on the root folder. For running tests outside of the SeleniumBase repo with <strong>nosetests</strong>, you'll want a copy of <strong><a href=https://github.com/seleniumbase/SeleniumBase/blob/master/setup.cfg>setup.cfg</a></strong> on the root folder. (Subfolders should include a blank <code>__init__.py</code> file.) These files specify default configuration details for tests. (For nosetest runs, you can also specify a .cfg file by using <code>--config</code>. Example <code>nosetests [MY_TEST.py] --config=[MY_CONFIG.cfg]</code>)</p> <p>🔵 As a shortcut, you'll be able to run <code>sbase mkdir [DIRECTORY]</code> to create a new folder that already contains necessary files and some example tests that you can run.</p> <div class=codehilite><pre><span></span><code>sbase mkdir ui_tests
+</code></pre></div> <p>An easy way to override seleniumbase/config/settings.py is by using a custom settings file. Here's the command-line option to add to tests: (See <a href=https://github.com/seleniumbase/SeleniumBase/blob/master/examples/custom_settings.py>examples/custom_settings.py</a>) <code>--settings_file=custom_settings.py</code> (Settings include default timeout values, a two-factor auth key, DB credentials, S3 credentials, and other important settings used by tests.)</p> <p>🔵 To pass additional data from the command-line to tests, add <code>--data="ANY STRING"</code>. Inside your tests, you can use <code>self.data</code> to access that.</p> <h3><img src=https://seleniumbase.io/img/logo6.png title=SeleniumBase width=32> Test Directory Customization:</h3> <p>🔵 When running tests with <strong>pytest</strong>, you'll want a copy of <strong><a href=https://github.com/seleniumbase/SeleniumBase/blob/master/pytest.ini>pytest.ini</a></strong> in the root folder (and in any folder where you run pytest). For running tests outside of the SeleniumBase repo with <strong>nosetests</strong>, you'll want a copy of <strong><a href=https://github.com/seleniumbase/SeleniumBase/blob/master/setup.cfg>setup.cfg</a></strong> on the root folder. Folders should also include a blank <code>__init__.py</code> file, which designates the folder as a Python package and allows your tests to import other files from that folder. These files specify default configuration details for tests. (For nosetest runs, you can also specify a .cfg file by using <code>--config</code>. Example <code>nosetests [MY_TEST.py] --config=[MY_CONFIG.cfg]</code>)</p> <p>🔵 As a shortcut, you'll be able to run <code>sbase mkdir DIR</code> to create a new folder that already contains necessary files and some example tests that you can run.</p> <div class=codehilite><pre><span></span><code>sbase mkdir ui_tests
 <span class=nb>cd</span> ui_tests/
 pytest test_demo_site.py
-</code></pre></div> <hr> <h3><img src=https://seleniumbase.io/img/logo6.png title=SeleniumBase width=32> Log files from failed tests:</h3> <p>Let's try an example of a test that fails:</p> <div class=codehilite><pre><span></span><code><span class=sd>&quot;&quot;&quot; test_fail.py &quot;&quot;&quot;</span>
+</code></pre></div> <p><b>ProTip™:</b> You can also create a boilerplate folder without any sample tests in it by adding <code>-b</code> or <code>--basic</code> to the <code>sbase mkdir</code> command:</p> <div class=codehilite><pre><span></span><code>sbase mkdir ui_tests --basic
+</code></pre></div> <blockquote> <p>That creates a folder with these files:</p> </blockquote> <div class=codehilite><pre><span></span><code>ui_tests/
+├── __init__.py
+├── pytest.ini
+├── requirements.txt
+└── setup.cfg
+</code></pre></div> <p>Of those files, the <code>pytest.ini</code> config file is the most important, followed by a blank <code>__init__.py</code> file. There's also a <code>setup.cfg</code> file (only needed for nosetests). Finally, the <code>requirements.txt</code> file can be used to help you install seleniumbase into your environments (if it's not already installed).</p> <hr> <h3><img src=https://seleniumbase.io/img/logo6.png title=SeleniumBase width=32> Log files from failed tests:</h3> <p>Let's try an example of a test that fails:</p> <div class=codehilite><pre><span></span><code><span class=sd>&quot;&quot;&quot; test_fail.py &quot;&quot;&quot;</span>
 <span class=kn>from</span> <span class=nn>seleniumbase</span> <span class=kn>import</span> <span class=n>BaseCase</span>
 
 <span class=k>class</span> <span class=nc>MyTestClass</span><span class=p>(</span><span class=n>BaseCase</span><span class=p>):</span>
