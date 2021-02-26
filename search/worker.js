@@ -6,10 +6,11 @@ var lang = ['en'];
 var data;
 
 function getScript(script, callback) {
-  console.log('Loading script: ' + script);
+  // console.log('Loading script: ' + script);
   $.getScript(base_path + script).done(function () {
     callback();
   }).fail(function (jqxhr, settings, exception) {
+    console.log('Loading script: ' + script);
     console.log('Error: ' + exception);
   });
 }
@@ -54,7 +55,7 @@ function onJSONLoaded () {
 }
 
 function onScriptsLoaded () {
-  console.log('All search scripts loaded, building Lunr index...');
+  // console.log('All search scripts loaded, building Lunr index...');
   if (data.config && data.config.separator && data.config.separator.length) {
     lunr.tokenizer.separator = new RegExp(data.config.separator);
   }
@@ -64,13 +65,13 @@ function onScriptsLoaded () {
     data.docs.forEach(function (doc) {
       documents[doc.location] = doc;
     });
-    console.log('Lunr pre-built index loaded, search ready');
+    // console.log('Lunr pre-built index loaded, search ready');
   } else {
     index = lunr(function () {
       if (lang.length === 1 && lang[0] !== "en" && lunr[lang[0]]) {
         this.use(lunr[lang[0]]);
       } else if (lang.length > 1) {
-        this.use(lunr.multiLanguage.apply(null, lang));  // spread operator not supported in all browsers: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator#Browser_compatibility
+        this.use(lunr.multiLanguage.apply(null, lang));
       }
       this.field('title');
       this.field('text');
@@ -82,7 +83,7 @@ function onScriptsLoaded () {
         documents[doc.location] = doc;
       }
     });
-    console.log('Lunr index built, search ready');
+    // console.log('Lunr index built, search ready');
   }
   allowSearch = true;
   postMessage({config: data.config});

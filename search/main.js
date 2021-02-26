@@ -79,10 +79,10 @@ function onWorkerMessage (e) {
 }
 
 if (!window.Worker) {
-  console.log('Web Worker API not supported');
+  // console.log('Web Worker API not supported');
   // load index in main thread
-  $.getScript(joinUrl('', '/search/worker.js')).done(function () {
-    console.log('Loaded worker');
+  $.getScript(joinUrl('/', 'search/worker.js')).done(function () {
+    // console.log('Loaded worker');
     init();
     window.postMessage = function (msg) {
       onWorkerMessage({data: msg});
