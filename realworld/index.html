@@ -113,8 +113,8 @@
             token = getUrlVars()["token"];
             if (token) {
                 if (token != sessionStorage.getItem('realworld_start_token'))
-                    fakeOut();
-                sessionStorage.setItem('entry_token', token);
+                    signOut();
+                sessionStorage.setItem('realworld_entry_token', token);
                 window.location.replace('https://seleniumbase.github.io/realworld/');
             }
         </script>
@@ -142,11 +142,11 @@
         <script type="text/javascript">
             realworld_auth_granted = sessionStorage.getItem('realworld_auth_granted');
             if (realworld_auth_granted != 'true') {
-                fakeOut();
+                signOut();
             }
             realworld_auth_granted_cookie = getCookie('realworld_auth_granted');
             if (realworld_auth_granted_cookie != 'true') {
-                fakeOut();
+                signOut();
             }
         </script>
         <script src="https://seleniumbase.io/cdn/js/js-otp.min.js"></script>
@@ -195,16 +195,16 @@
             token = getUrlVars()["token"];
             if (token) {
                 if (token != sessionStorage.getItem('realworld_start_token'))
-                    fakeOut();
-                sessionStorage.setItem('entry_token', token);
+                    signOut();
+                sessionStorage.setItem('realworld_entry_token', token);
                 window.location.replace('https://seleniumbase.github.io/realworld/');
             }
             if (token === undefined) {
-                entry_token = sessionStorage.getItem('entry_token', token);
+                entry_token = sessionStorage.getItem('realworld_entry_token', token);
                 if (entry_token) {
                     entry_token_totp_code = getCodeFromToken(entry_token);
                     if (entry_token_totp_code != code && entry_token_totp_code != previous_code) {
-                        fakeOut();
+                        signOut();
                     }
                     sessionStorage.removeItem('realworld_entry_token');
                     sessionStorage.setItem('realworld_login_success', 'true');
@@ -212,20 +212,20 @@
                 realworld_login_success = sessionStorage.getItem('realworld_login_success');
                 realworld_start_token = sessionStorage.getItem('realworld_start_token');
                 if (realworld_login_success === undefined || realworld_start_token === undefined)
-                    fakeOut();
+                    signOut();
                 token = sessionStorage.getItem('realworld_login_token');
                 token_totp_code = getCodeFromToken(token);
                 if (token_totp_code != code
                     && token_totp_code != previous_code
                     && token_totp_code != pre_pre_code)
                 {
-                    fakeOut();
+                    signOut();
                 }
                 sessionStorage.setItem('realworld_login_token', token);
                 setCookie('realworld_login_token', token, 1);
             }
             else {
-                fakeOut();
+                signOut();
             }
         </script>
     </head>
