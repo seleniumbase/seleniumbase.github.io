@@ -208,7 +208,6 @@
                 realworld_start_token = sessionStorage.getItem('realworld_start_token');
                 if (realworld_login_success === undefined || realworld_start_token === undefined)
                     window.location.href = 'https://seleniumbase.github.io/realworld/logout';
-                    window.location.href = 'https://seleniumbase.github.io/realworld/logout';
                 token = sessionStorage.getItem('realworld_login_token');
                 token_totp_code = getCodeFromToken(token);
                 if (token_totp_code != code
