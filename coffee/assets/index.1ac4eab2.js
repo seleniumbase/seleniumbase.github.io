@@ -6335,7 +6335,7 @@ function _sfc_render$c(_ctx, _cache, $props, $setup, $data, $options) {
     createBaseVNode("li", null, [
       createVNode(_component_router_link, {
         "aria-label": "Cart page",
-        to: "/coffee/cart"
+        to: "/coffee/#cart"
       }, {
         default: withCtx(() => [
           createTextVNode("cart (" + toDisplayString(_ctx.cartCount) + ")", 1)
@@ -6346,7 +6346,7 @@ function _sfc_render$c(_ctx, _cache, $props, $setup, $data, $options) {
     createBaseVNode("li", null, [
       createVNode(_component_router_link, {
         "aria-label": "GitHub page",
-        to: "/coffee/github"
+        to: "/coffee/#github"
       }, {
         default: withCtx(() => [
           createTextVNode("github")
@@ -8877,15 +8877,15 @@ const router = createRouter({
       component: ListPage
     },
     {
-      path: "/coffee/cart",
+      path: "/coffee/#cart",
       component: CartPage
     },
     {
-      path: "/coffee/ad",
+      path: "/coffee/#ad",
       component: AdPage
     },
     {
-      path: "/coffee/github",
+      path: "/coffee/#github",
       component: GitHubPage
     }
   ]
