@@ -2375,7 +2375,7 @@ With raw Selenium, that requires more code:<br />
 
 <p>💡 SeleniumBase gives you the option to generate a dashboard and reports for tests. It also saves screenshots from failing tests to the <code translate="no">./latest_logs/</code> folder. Raw <a href="https://www.selenium.dev/documentation/webdriver/" target="_blank">Selenium</a> does not have these options out-of-the-box.</p>
 
-<p>💡 SeleniumBase includes desktop GUI apps for running tests, such as <b>SeleniumBase Commander</b> for <code translate="no">pytest</code> and <b>SeleniumBase Behave GUI for <a href="examples/behave_bdd/ReadMe/"><code translate="no">behave</code></a>.</b></p>
+<p>💡 SeleniumBase includes desktop GUI apps for running tests, such as <b translate="no">SeleniumBase Commander</b> for <code translate="no">pytest</code> and <b><span translate="no">SeleniumBase Behave GUI</span> for <a href="examples/behave_bdd/ReadMe/"><code translate="no">behave</code></a>.</b></p>
 
 <p>💡 SeleniumBase has its own Recorder / Test Generator that can create tests from manual browser actions. SeleniumBase also includes other useful tools and console scripts for getting things done quickly. (<i>See the documentation for more details!</i>)</p>
 
@@ -2463,7 +2463,7 @@ With raw Selenium, that requires more code:<br />
 <span class="k">finally</span><span class="p">:</span>
     <span class="n">driver</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
 </code></pre></div>
-<p align="left">📕📝 An <a href="https://github.com/seleniumbase/SeleniumBase/blob/master/examples/behave_bdd/features/login_app.feature"> example test</a> with <b>behave-BDD</b> <a href="https://behave.readthedocs.io/en/stable/gherkin.html#features" target="_blank">Gherkin</a> structure. Runs with <b><code translate="no">behave</code></b>. (<a href="examples/behave_bdd/ReadMe/">Learn more</a>)</p>
+<p align="left">📕📝 An <a href="https://github.com/seleniumbase/SeleniumBase/blob/master/examples/behave_bdd/features/login_app.feature"> example test</a> using <b translate="no">behave-BDD</b> <a href="https://behave.readthedocs.io/en/stable/gherkin.html#features" target="_blank">Gherkin</a> syntax. Runs with <b><code translate="no">behave</code></b>. (<a href="examples/behave_bdd/ReadMe/">Learn more</a>)</p>
 
 <div class="highlight"><pre><span></span><code><span class="k">Feature:</span><span class="nf"> SeleniumBase scenarios for the Simple App</span>
 
@@ -2555,7 +2555,7 @@ COMMANDS:
 <p>✅ SeleniumBase automatically downloads webdrivers as needed, such as <code>chromedriver</code>.</p>
 <div></div>
 <details>
-<summary> ▶️ Here's output from a chromedriver download. (<b>click to expand</b>)</summary>
+<summary> ▶️ Here's sample output from a chromedriver download. (<b>click to expand</b>)</summary>
 
 <div class="highlight"><pre><span></span><code>***<span class="w"> </span>chromedriver<span class="w"> </span>to<span class="w"> </span><span class="nv">download</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">116</span>.0.5845.96<span class="w"> </span><span class="o">(</span>Latest<span class="w"> </span>Stable<span class="o">)</span><span class="w"> </span>
 
@@ -2984,7 +2984,7 @@ Inside your tests, you can use <code>self.data</code> to access that.</p>
 <div class="highlight"><pre><span></span><code>behave<span class="w"> </span>behave_bdd/features/<span class="w"> </span>-D<span class="w"> </span>dashboard<span class="w"> </span>-D<span class="w"> </span>headless
 </code></pre></div>
 <p><img src="https://seleniumbase.github.io/cdn/img/sb_behave_dashboard.png" title="SeleniumBase" width="500"></p>
-<p>You can also use <code>--junit</code> to get <code>.xml</code> reports for each Behave feature. Jenkins can use these files to display better reporting for your tests.</p>
+<p>You can also use <code>--junit</code> to get <code>.xml</code> reports for each <code translate="no">behave</code> feature. Jenkins can use these files to display better reporting for your tests.</p>
 <div class="highlight"><pre><span></span><code>behave<span class="w"> </span>behave_bdd/features/<span class="w"> </span>--junit<span class="w"> </span>-D<span class="w"> </span>rs<span class="w"> </span>-D<span class="w"> </span>headless
 </code></pre></div>
 <h3>🔵 Allure Reports:</h3>
